@@ -28,21 +28,23 @@ Template.tModalPlayer.rendered = function(evt, tmpl) {
 Template.tModalPlayer.events({
   'click .save-changes': function(evt, tmpl) {
     var firstName = $('.first-name').val();
+    var lastIni = $('.last-ini').val();
     var gameStatus = $('.game-status').val();
     var fieldPosition = $('.field-position').val();
     var gerseyNumber = $('.gersey-number').val();
     var seasonFeeOwed = $('.season-fee-owed').val();
     var seasonFeePaid = $('.season-fee-paid').val();
-    updatePlayer(firstName, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid);
+    updatePlayer(firstName, lastIni, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid);
     $("#modal-id").modal("hide");
     Session.set('sPlayerId', null);
   }
 });
 
-var updatePlayer = function(firstName, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid) {
+var updatePlayer = function(firstName, lastIni, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid) {
   Players.update(Session.get("sPlayerId"), {
     $set: {
       firstName: firstName,
+      lastIni: lastIni,
       gameStatus: gameStatus,
       fieldPosition: fieldPosition,
       gerseyNumber: gerseyNumber,
