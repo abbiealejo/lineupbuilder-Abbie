@@ -49,7 +49,7 @@ Template.tAddPlayer.events({
         // call the addPlayer method (note below it is a variable that has a function tied to it)
         //  and pass the addPlayer method, the variable firstName (which remember..
         // hold whatever the user typed in the text box... the name of the player)
-        addPlayer(firstName, fieldPosition, gameStatus, gerseyNumber, seasonFeeOwed, seasonFeePaid);
+        addPlayer(firstName, lastIni, fieldPosition, gameStatus, gerseyNumber, seasonFeeOwed, seasonFeePaid);
 
     },
     'keyup .season-fee-paid': function(evt, tmpl) {
@@ -82,10 +82,10 @@ Template.tAddPlayer.events({
 // it takes the firstName argument that was passed and stores it in its parameter
 //   then the method takes the parameter value and uses MongoDb syntax
 //   to insert the name into our collection (aka table)
-var addPlayer = function(firstName, fieldPosition, gameStatus, gerseyNumber, seasonFeePaid, seasonFeeOwed) {
+var addPlayer = function(firstName, lastIni, fieldPosition, gameStatus, gerseyNumber, seasonFeePaid, seasonFeeOwed) {
     Players.insert({
         firstName: firstName,
-        // lastIni: lastIni,
+        lastIni: lastIni,
         fieldPosition: fieldPosition,
         gameStatus: gameStatus,
         gerseyNumber: gerseyNumber,
